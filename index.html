@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+	<meta charset="utf-8">
+
+	<title>Python for Computer Vision</title>
+
+	<meta name="description" content="Computer vision is an emerging field of increasing importance to the enterprise.  This field encompasses many important research problems such as feature extraction, face detection, and object recognition and has traditionally been facilitated by proprietary tools such as MATLAB.  In this talk, we’ll explore how to solve computer vision and machine learning problems with open-source Python libraries.  By leveraging high-performance libraries such as SciPy, scikit-learn, and OpenCV, we’ll examine how Python is a viable and open-source platform for computer vision tasks and walk through some real-life applications.">
+	<meta name="author" content="Jarrell Waggoner">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+	<link rel="stylesheet" href="css/solarized.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+	  document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+  </head>
+
+  <body>
+
+	<div class="reveal">
+
+	  <div class="slides">
+		<section>
+		  <h1>Python</h1>
+		  <h3>for</h3>
+          <h2 style="font-family: monospace;">Computer Vision</h2>
+		  <p>
+			<small><a href="http://www.malloc47.com">Jarrell Waggoner</a> / <a href="http://twitter.com/malloc47">@malloc47</a></small>
+            <br />
+          <p><small>Online: <a href="http://www.malloc47.com/ato2013/">malloc47.com/ATO2013/</a></small></p>
+		  </p>
+		</section>
+
+        <section>
+          <section>
+            <h1>Computer Vision</h1>
+            <ul>
+              <li>Subset of AI
+              <li>Concerned with problems that involve visual perception</li>
+              <li>Well-known accomplishments:
+                <ul>
+                  <li>Face detection</li>
+                  <li>Kinect</li>
+                  <li>Eye/Fingerprint Identification</li>
+                  <li>OCR</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h1>Levels of CV</h1>
+            <ul>
+              <li>Low-level (image processing)</li>
+              <li>Mid-level (features)</li>
+              <li>High-level (human)</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Why Python?</h1>
+            <ul>
+              <li>Open Source</li>
+              <li>Multi-paradigm</li>
+              <li>Library-rich</li>
+              <li>Extensible</li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="img/scipy.png" style="border: none; box-shadow: none;" width="250px"><br />
+            <h3>SciPy/NumPy</h3>
+            <ul>
+              <li>General scientific and numeric computing libraries</li>
+              <li>Supplies algorithms and datatypes for most Python CV libraries</li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="img/scikit-image.png" style="border: none; box-shadow: none;" width="250px"><br />
+            <h3>scikit-image</h3>
+            <ul>
+              <li>In the family
+              of <a href="http://scikits.appspot.com/scikits">scikits</a>,
+              analogous to Matlab toolboxes</li>
+              <li>Similar to Matlab's image processing toolbox</li>
+              <li>Focuses on image processing and mid-level vision</li>
+              <li>Useful for
+                <ul>
+                  <li>Morphological operations</li>
+                  <li>Edge/corner detection</li>
+                  <li>Image filtering</li>
+                  <li>Segmentation</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <img src="img/opencv.png" style="border: none; box-shadow: none;" width="250px"><br />
+            <ul>
+              <li>Originally an Intel project launched in 1999</li>
+              <li>Now run by non-profit OpenCV.org</li>
+              <li>C/C++ interface with some Python bindings</li>
+              <li>Geared toward high-level CV</li>
+              <li>Useful for 
+                <ul>
+                  <li>Face recognition</li>
+                  <li>Motion tracking</li>
+                  <li>Some learning algorithms</li>
+                  <li>Robotics</li>
+              </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Others</h3>
+            <ul>
+              <li>Scikit-learn: Machine learning algorithms</li>
+              <li><a href="https://github.com/sightmachine/simplecv">SimpleCV</a>:
+              Companion to <em>Practical Computer Vision</em> book </li>
+              <li>pymorph / mahotas: extensive morphological algorithm support</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h1>Examples</h1>
+        </section>
+
+        <section>
+          <h1>Basics</h1>
+          <ul>
+            <li>Loading images</li>
+            <li>Numpy matrix operations</li>
+            <li>Viewing images</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Edge Detection</h1>
+          <ul>
+            <li>Concerned with identifying strong edges in an image</li>
+            <li>Useful for identifying<ul>
+                <li>dominant directions</li>
+                <li>horizon lines</li>
+                <li>general shape</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Morphological Operations</h1>
+          <ul>
+            <li>Based on <a href="http://en.wikipedia.org/wiki/Mathematical_morphology">mathematical morphology</a></li>
+            <li>Typically use a special "structuring element" shape</li>
+            <li>Useful for a variety of basic image processing</li>
+            <li>Typically fast enough for real-time use</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Face Detection</h1>
+          <ul>
+            <li>Built into OpenCV</li>
+            <li>One technique uses HAAR Cascade
+              <ul>
+                <li>Based on HAAR wavelets</li>
+                <li>Introduced by Alfréd Haar in 1909</li>
+              </ul>
+            </li>
+            <li>Based on integral images: fast</li>
+            <li>HAAR features arranged into relationships (eyes in
+            relation to nose, in relation to mouth, in relation
+            to...)</li>
+            <li>Requires a trained "cascade" for classification</li>
+            <li>Many trained cascades <a href="http://alereimondo.no-ip.org/OpenCV/34">available</a> for face detection</li>
+          </ul>
+        </section>
+
+	  </div>
+
+	</div>
+
+	<script src="reveal.js/lib/js/head.min.js"></script>
+	<script src="reveal.js/js/reveal.min.js"></script>
+
+	<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+	</script>
+  </body>
+</html>
